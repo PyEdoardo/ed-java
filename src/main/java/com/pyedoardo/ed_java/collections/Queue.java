@@ -8,6 +8,6 @@ package com.pyedoardo.ed_java.collections;
  *
  * @author edoar
  */
-public class Heap {
+public class Queue {
     
 }
