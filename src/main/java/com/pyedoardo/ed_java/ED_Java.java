@@ -4,6 +4,10 @@
 
 package com.pyedoardo.ed_java;
 
+import com.pyedoardo.ed_java.collections.LinkedList;
+import com.pyedoardo.ed_java.collections.List;
+import java.util.ArrayList;
+
 /**
  *
  * @author edoar
@@ -11,6 +15,10 @@ package com.pyedoardo.ed_java;
 public class ED_Java {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        List lds = new List(10);
+        LinkedList llds = new LinkedList();
+        ArrayList alds = new ArrayList();
+        lds.append("Edoardo", true, 1L, 1.1213132, 's');
+        lds.show();
     }
 }
