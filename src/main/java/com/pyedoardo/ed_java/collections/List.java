@@ -10,7 +10,7 @@ import java.util.Comparator;
  *
  * @author Edoardo Tombolesi
  * Implementação genérica de uma lista dinâmica, semelhante à ArrayList
- * Os nomes em inglês é para dar a sensação de estar usando uma lista nativa do java.
+ * Os nomes em inglês é para dar a sensação de estar a usar uma lista nativa do java.
  * O uso de @SuppressWarnings("unchecked") é bem necessário ao trabalhar com arrays genéricos.
  * @param <T> Tipo dos elementos armazenados na lista
  */
@@ -66,7 +66,7 @@ public class List<T> implements Iterable<T>{
     }
 
     /**
-     * Adiciona um novo elemento em uma posição específica da lista,
+     * Adiciona um novo elemento numa posição específica da lista,
      * deslocando os elementos posteriores.
      * @param pos posição onde o elemento será inserido
      * @param obj elemento a ser inserido
@@ -88,7 +88,7 @@ public class List<T> implements Iterable<T>{
     
     /**
      * Adiciona múltiplos elementos ao final da lista.
-     * @param objs varargs de elementos a serem inseridos
+     * @param objs varargs de elementos a serem inseridos.
      */
     public void append(@SuppressWarnings("unchecked") T... objs) {
         for (T obj : objs) {
@@ -99,7 +99,7 @@ public class List<T> implements Iterable<T>{
     /**
      * Insere um elemento no início da lista (índice 0), deslocando os demais.
      * Equivalente a chamar append(0, obj).
-     * @param obj 
+     * @param obj objeto a ser adicionado na lista.
      */
     public void appendStart(T obj){
         append(0, obj);
@@ -210,7 +210,7 @@ public class List<T> implements Iterable<T>{
     
     /**
      * Garante que haja espaço para novos elementos. Se a lista estiver cheia,
-     * dobra a capacidade criando um novo array e copiando os dados para ele.
+     * dobra a capacidade criando um array e copiando os dados para ele.
      */
     private void ensureCapacity() {
         if (isFull()) {
@@ -240,7 +240,7 @@ public class List<T> implements Iterable<T>{
     }
        
     /**
-     * Adiciona um valor "objeto" em uma posição específica.
+     * Adiciona um valor "objeto" numa posição específica.
      * @param index é a posição da lista em que vamos trocar um item.
      * @param value é o valor, um generic.
      */
@@ -271,7 +271,7 @@ public class List<T> implements Iterable<T>{
     
     /**
      * Inverte a ordem dos elementos na lista.
-     * 
+     * <p>
      * Após a execução, o primeiro elemento será o último e vice-versa.
      */
     public void reverse() {
@@ -283,7 +283,7 @@ public class List<T> implements Iterable<T>{
     }
     
     /**
-     * Retorna o elemento armazenado em uma posição específica.
+     * Retorna o elemento armazenado numa posição específica.
      * @param index índice desejado
      * @return elemento do tipo T
      * @throws IndexOutOfBoundsException se o índice for inválido
@@ -299,7 +299,7 @@ public class List<T> implements Iterable<T>{
     
     /**
      * Retorna um iterador que percorre os elementos da lista do início ao fim.
-     * 
+     * <p>
      * Esse método permite o uso da lista com o laço "for-each", fornecendo
      * uma forma conveniente de iterar sobre os elementos armazenados.
      *
@@ -333,5 +333,44 @@ public class List<T> implements Iterable<T>{
             sReturn.append(values[i]).append("\n");
         }
         return sReturn.toString();
+    }
+
+    /**
+     * Retorna uma representação textual da lista, com um elemento por linha
+     * Com o seu respetivo tipo.
+     * @return Uma ‘string’ com todos os elementos da lista.
+     */
+    public String toStringType(){
+        String sReturn = "\n";
+        for (int i = 0; i < actualSize; i++){
+            if (values[i] instanceof String){
+                sReturn += "Value: " + values[i] + " Type: String\n";
+            }
+            else if (values[i] instanceof Integer){
+                sReturn += "Value: " + values[i] + " Type: Integer\n";
+            }
+            else if (values[i] instanceof Double){
+                sReturn += "Value: " + values[i] + " Type: Double\n";
+            }
+            else if (values[i] instanceof Float){
+                sReturn += "Value: " + values[i] + " Type: Float\n";
+            }
+            else if (values[i] instanceof Long){
+                sReturn += "Value: " + values[i] + " Type: Long\n";
+            }
+            else if (values[i] instanceof Boolean){
+                sReturn += "Value: " + values[i] + " Type: Boolean\n";
+            }
+            else if (values[i] instanceof Character){
+                sReturn += "Value: " + values[i] + " Type: Character\n";
+            }
+            else if (values[i] != null){
+                sReturn += "Value: " + values[i] + " Type: Object\n";
+            }
+            else {
+                sReturn += "Value: null\n";
+            }
+        }
+        return sReturn;
     }
 }

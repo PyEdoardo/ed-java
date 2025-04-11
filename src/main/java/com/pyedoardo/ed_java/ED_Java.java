@@ -4,6 +4,7 @@
 
 package com.pyedoardo.ed_java;
 
+import com.pyedoardo.ed_java.collections.DoubleLinkedListC;
 import com.pyedoardo.ed_java.collections.LinkedList;
 import com.pyedoardo.ed_java.collections.List;
 import java.util.ArrayList;
@@ -15,10 +16,14 @@ import java.util.ArrayList;
 public class ED_Java {
 
     public static void main(String[] args) {
-        List lds = new List(10);
-        LinkedList llds = new LinkedList();
-        ArrayList alds = new ArrayList();
-        lds.append("Edoardo", true, 1L, 1.1213132, 's');
-        lds.show();
+        //List<Object> lds = new List<>(10);
+        //lds.append("Edoardo", true, 1L, 1.1213132, 's');
+        //lds.show();
+
+        DoubleLinkedListC<Object> ldl = new DoubleLinkedListC<>();
+
+        ldl.append(1,2,3,4,5,6,7,8,9);
+        //ldl.show();
+        ldl.reverseShow();
     }
 }
